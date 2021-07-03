@@ -1,0 +1,203 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "tournament app",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": [
+            "how do I say that I lost",
+            "how do I say that I won",
+            "how do I report the outcome of a match",
+            "what are the commands I can say",
+            "help",
+            "help me",
+            "please help me"
+          ]
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [
+            {
+              "name": "listOfNames",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "the names are {listOfNames}",
+                "{listOfNames}"
+              ],
+              "multipleValues": {
+                "enabled": true
+              }
+            }
+          ],
+          "samples": [
+            "the players are {listOfNames}",
+            "create a bracket",
+            "My list of names is {listOfNames}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "ReportLoss",
+          "slots": [
+            {
+              "name": "loser",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "{loser} lost",
+                "{loser}",
+                "My name is {loser}"
+              ]
+            }
+          ],
+          "samples": [
+            "{loser} lost",
+            "I lost",
+            "I lost my game",
+            "{loser} has lost"
+          ]
+        },
+        {
+          "name": "getCurrentMatches",
+          "slots": [],
+          "samples": [
+            "what are the remaining matches",
+            "repeat the match ups",
+            "who still needs to play this round",
+            "who needs to play this round",
+            "what are the current match ups",
+            "what are the current matches"
+          ]
+        },
+        {
+          "name": "ReportWinner",
+          "slots": [
+            {
+              "name": "winner",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "My name is {winner}",
+                "{winner}",
+                "{winner} won"
+              ]
+            }
+          ],
+          "samples": [
+            "{winner} won their match",
+            "I won my match",
+            "I won my game",
+            "I won",
+            "{winner} won"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "HelloWorldIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "listOfNames",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.127949518725.1124513087075"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReportLoss",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "loser",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1561373295726.1267806413608"
+              }
+            }
+          ]
+        },
+        {
+          "name": "ReportWinner",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "winner",
+              "type": "AMAZON.FirstName",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.330230890272.1595982622296"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.127949518725.1124513087075",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "say the names for the bracket"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1561373295726.1267806413608",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please state your name"
+          },
+          {
+            "type": "PlainText",
+            "value": "What was your name"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.330230890272.1595982622296",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "what was your name"
+          },
+          {
+            "type": "PlainText",
+            "value": "Please state your name"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "12"
+}
